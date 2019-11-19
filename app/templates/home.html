@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+	<title>GenPodcastFrom</title>
+	<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+</head>
+<body>
+<br>
+<center><h2>Generate Podcast from:</h2></center>
+<br>
+
+<div class="row align-items-center justify-content-center">
+	<div class="col-md-5">
+		<form  action="" method="post" role="form">
+			<div class="form-group">
+				<label for="youtube_url" >YouTube</label>
+				<input type="text" class="form-control-plaintext" id="youtube_url" name="youtube_url" placeholder=" YouTube channel or playlist URL">
+			</div>
+			<br>
+			<center>
+				<button type="submit" class="btn btn-success">Generate RSS</button>
+			</center>
+		</form>
+		<br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		<div class="alert alert-danger">
+			<strong>Error: </strong> {{ messages[0][1] }}
+		</div>
+		{% endif %}
+		{% endwith %}
+	</div>
+	<br>
+</div>
+
+</body>
+</html>

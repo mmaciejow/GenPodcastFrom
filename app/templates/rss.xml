@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+	<channel>
+		<title>{{values.infoChannel.channelTitle}}</title>
+		<link>{{values.infoChannel.channelLink}}</link>
+		<image>
+			<title>{{values.infoChannel.channelTitle}}</title>
+			<url>{{values.infoChannel.channelAvatar}}</url>
+			<link>{{values.infoChannel.channelLink}}</link>
+		</image>
+		{% for val in values['items'] %}
+		<item>
+			<title>{{val.title}}</title>
+			<link>{{val.link}}</link>
+			<pubDate>{{val.published}}</pubDate>
+			<guid>{{val.link}}</guid>
+			<description>{{val.description}}</description>
+			<enclosure url="{{val.linkAudio}}" length="{{val.duration}}"  />
+			<itunes:duration>{{ val.duration | itunes_duration }}</itunes:duration>
+
+
+		</item>
+		{% endfor %}
+	</channel>
+</rss>
